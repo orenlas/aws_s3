@@ -3,8 +3,13 @@ import json
 from flask import Flask, Response
 from helloworld.flaskrun import flaskrun
 import requests
+from flask_cors import CORS
+
+
 
 application = Flask(__name__)
+CORS(application, resources={r"/*": {"origins": "*"}})
+
 @application.route('/calc/bit', methods=['GET'])
 def post_currency_bit():
     return Response(json.dumps(get_bitcoin_index()), mimetype='application/json', status=200)
