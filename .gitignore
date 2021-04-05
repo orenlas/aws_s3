@@ -1,4 +1,4 @@
-build
-dist
-helloworld.egg-info
-.eggs
+/build
+/dist
+/helloworld.egg-info
+/.eggs
