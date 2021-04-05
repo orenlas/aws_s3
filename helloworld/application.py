@@ -19,6 +19,28 @@ def get():
 @application.route('/', methods=['POST'])
 def post():
     return Response(json.dumps({'Output': 'Hello World'}), mimetype='application/json', status=200)
-
+# return generic data
+@application.route('/get_generic', methods=['GET'])
+def get_generic_data():
+    return Response(json.dumps(generic_data), mimetype='application/json', status=200)
+# mock data
+currency_rate = {
+    'usd' : 3.3,
+    'pound' : 4.5,
+    'euro' : 4.8
+}
+#generic data
+generic_data = [
+    {
+    "id":1,
+    "title": "wtf",
+    "body": "good will"
+    },
+    {
+    "id":2,
+    "title": "wtf2",
+    "body": "good will2"
+    }
+   ]
 if __name__ == '__main__':
     flaskrun(application)
